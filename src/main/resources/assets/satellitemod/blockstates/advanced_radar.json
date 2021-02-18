@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": [
+            { "model": "satellitemod:advanced_radar" }
+        ]
+    }
+}

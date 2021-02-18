@@ -1,0 +1,28 @@
+{ 
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IGI",
+    "I I",
+    "IRI" ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "G": [
+      {
+      	"item": "minecraft:glass_pane",
+      	"data": 0
+      },
+      {
+      	"item": "minecraft:stained_glass_pane",
+        "data": 32767
+      }
+    ]
+  },
+  "result": {
+    "item": "satellitemod:basic_radar"
+  }
+}

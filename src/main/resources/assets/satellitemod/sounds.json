@@ -1,0 +1,10 @@
+{
+  "error": {
+    "category": "master",
+    "sounds": ["satellitemod:error"]
+  },
+  "radar": {
+  	"category": "master",
+  	"sounds": ["satellitemod:radar"]
+  }
+}

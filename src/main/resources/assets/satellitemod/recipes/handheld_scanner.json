@@ -1,0 +1,35 @@
+{ 
+  "type": "minecraft:crafting_shaped",
+  "pattern": 
+  [
+    "TQT",
+    "ICI",
+    "IRI"
+  ],
+  "key": 
+  {
+    "I": 
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    "T":
+    {
+      "item": "minecraft:redstone_torch"
+    },
+    "Q":
+    {
+      "item": "minecraft:quartz"
+    },
+    "R":
+    {
+      "item": "minecraft:redstone"
+    },
+    "C":
+    {
+      "item": "satellitemod:tracking_core"
+    }
+  },
+  "result": {
+    "item": "satellitemod:handheld_scanner"
+  }
+}

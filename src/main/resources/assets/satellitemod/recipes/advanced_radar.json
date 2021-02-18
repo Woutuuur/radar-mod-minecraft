@@ -1,0 +1,31 @@
+{ 
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IGI",
+    "ICI",
+    "IRI" ],
+  "key": {
+    "C": {
+      "item": "satellitemod:tracking_core"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "G": [
+      {
+      	"item": "minecraft:glass_pane",
+      	"data": 0
+      },
+      {
+      	"item": "minecraft:stained_glass_pane",
+        "data": 32767
+      }
+    ]
+  },
+  "result": {
+    "item": "satellitemod:advanced_radar"
+  }
+}

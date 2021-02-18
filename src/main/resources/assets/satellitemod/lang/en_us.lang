@@ -1,0 +1,9 @@
+item.handheld_scanner.name=Handheld Scanner
+item.tracking_core.name=Tracking Core
+item.player_tracker.name=Player Tracker
+item.handheld_jammer.name=Handheld Jammer
+
+tile.basic_radar.name=Basic Radar
+tile.advanced_radar.name=Advanced Radar
+
+itemGroup.tabRadarMod=Radar Mod
