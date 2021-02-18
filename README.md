@@ -14,5 +14,5 @@ Item|Description
 -------|---------
 Tracking Core|Crafting component
 Handheld Scanner|Right click to scan the current chunk for players<br>Uses 1 durability
-Player Tracker| Right click on a player to start tracking them<br>Right click again to get your current distance away from them<br>Can only track in the same dimension
+Player Tracker| Right click on a player to start tracking them<br>Right click again to get your current distance away from them<br>Can only track in the same dimension<br>Uses 1 Tracing Core per use
 Handheld Jammer|Keep in your inventory to prevent the Player Tracker from tracking you<br>Players can still bind the Player Tracker to you, but finding your distance won't work
