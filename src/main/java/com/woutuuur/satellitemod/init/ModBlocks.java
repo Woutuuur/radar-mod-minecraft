@@ -1,6 +1,7 @@
 package com.woutuuur.satellitemod.init;
 
 import com.woutuuur.satellitemod.Reference;
+import com.woutuuur.satellitemod.SatelliteMod;
 import com.woutuuur.satellitemod.items.ItemBlockCustom;
 import com.woutuuur.satellitemod.tiles.EntityTileRadar;
 import com.woutuuur.satellitemod.tiles.TileRadar;
@@ -8,7 +9,6 @@ import com.woutuuur.satellitemod.tiles.TileRadar;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -40,9 +40,11 @@ public class ModBlocks {
 		String radarTooltip = "Range: %d chunks\nEmits a redstone signal when players are nearby\nRight click to add yourself to the whitelist";
 		
 		ItemBlockCustom _basic_radar = new ItemBlockCustom(basic_radar);
+		_basic_radar.setCreativeTab(SatelliteMod.tabRadarMod);
 		_basic_radar.addTooltip(String.format(radarTooltip, ((TileRadar) basic_radar).range));
 		
 		ItemBlockCustom _advanced_radar = new ItemBlockCustom(advanced_radar);
+		_advanced_radar.setCreativeTab(SatelliteMod.tabRadarMod);
 		_advanced_radar.addTooltip(String.format(radarTooltip, ((TileRadar) advanced_radar).range));
 
 		event.getRegistry().registerAll(_basic_radar.setRegistryName(basic_radar.getRegistryName()));
