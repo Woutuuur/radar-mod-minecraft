@@ -23,8 +23,8 @@ public class ModBlocks {
 	static Block advanced_radar;
 	
 	public static void init() {
-		basic_radar = new TileRadar("basic_radar", 3);
-		advanced_radar = new TileRadar("advanced_radar", 10);
+		basic_radar = new TileRadar("basic_radar", 3).setCreativeTab(SatelliteMod.tabRadarMod);
+		advanced_radar = new TileRadar("advanced_radar", 10).setCreativeTab(SatelliteMod.tabRadarMod);
 	}
 	
 	@SubscribeEvent
@@ -40,11 +40,9 @@ public class ModBlocks {
 		String radarTooltip = "Range: %d chunks\nEmits a redstone signal when players are nearby\nRight click to add yourself to the whitelist";
 		
 		ItemBlockCustom _basic_radar = new ItemBlockCustom(basic_radar);
-		_basic_radar.setCreativeTab(SatelliteMod.tabRadarMod);
 		_basic_radar.addTooltip(String.format(radarTooltip, ((TileRadar) basic_radar).range));
 		
 		ItemBlockCustom _advanced_radar = new ItemBlockCustom(advanced_radar);
-		_advanced_radar.setCreativeTab(SatelliteMod.tabRadarMod);
 		_advanced_radar.addTooltip(String.format(radarTooltip, ((TileRadar) advanced_radar).range));
 
 		event.getRegistry().registerAll(_basic_radar.setRegistryName(basic_radar.getRegistryName()));

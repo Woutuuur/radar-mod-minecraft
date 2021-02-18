@@ -1,9 +1,9 @@
 [
 {
   "modid": "satellitemod",
-  "name": "Satellite Mod",
-  "description": "The satellite mod lets you build radars and satellites to find other players!",
-  "version": "VERSION",
+  "name": "Radar Mod",
+  "description": "Detect, track and find other players",
+  "version": "0.1",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
