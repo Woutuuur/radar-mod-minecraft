@@ -7,8 +7,9 @@ A list of currently implemented features:
 
 Block|Description
 -------|---------
-Basic Radar|Emits a redstone signal when there are players in a 3 chunk radius
-Advanced Radar|Emits a redstone signal when there are players in a 10 chunk radius
+Basic Radar|Emits a redstone signal when there are players in a **3** chunk radius
+Advanced Radar|Emits a redstone signal when there are players in a **10** chunk radius
+Elite Radar|Emits a redstone signal when there are players in a **50** chunk radius
 
 :: Right click a radar to add yourself to the whitelist<br>
 :: Shift + right click a radar to show who's currently on the whitelist
