@@ -5,5 +5,6 @@ item.handheld_jammer.name=Handheld Jammer
 
 tile.basic_radar.name=Basic Radar
 tile.advanced_radar.name=Advanced Radar
+tile.elite_radar.name=Elite Radar
 
 itemGroup.tabRadarMod=Radar Mod

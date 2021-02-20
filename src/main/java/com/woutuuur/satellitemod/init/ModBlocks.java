@@ -21,18 +21,21 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModBlocks {
 	static Block basic_radar;
 	static Block advanced_radar;
+	static Block elite_radar;
 	
 	public static void init() {
 		basic_radar = new TileRadar("basic_radar", 3).setCreativeTab(SatelliteMod.tabRadarMod);
 		advanced_radar = new TileRadar("advanced_radar", 10).setCreativeTab(SatelliteMod.tabRadarMod);
+		elite_radar = new TileRadar("elite_radar", 50).setCreativeTab(SatelliteMod.tabRadarMod);
 	}
 	
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 		event.getRegistry().registerAll(basic_radar);
 		event.getRegistry().registerAll(advanced_radar);
+		event.getRegistry().registerAll(elite_radar);
 		
-		GameRegistry.registerTileEntity(EntityTileRadar.class, new ResourceLocation(Reference.MODID + ":basic_radar"));
+		GameRegistry.registerTileEntity(EntityTileRadar.class, new ResourceLocation(Reference.MODID + ":radar"));
 	}
 	
 	@SubscribeEvent
@@ -44,15 +47,20 @@ public class ModBlocks {
 		
 		ItemBlockCustom _advanced_radar = new ItemBlockCustom(advanced_radar);
 		_advanced_radar.addTooltip(String.format(radarTooltip, ((TileRadar) advanced_radar).range));
+		
+		ItemBlockCustom _elite_radar = new ItemBlockCustom(elite_radar);
+		_elite_radar.addTooltip(String.format(radarTooltip, ((TileRadar) elite_radar).range));
 
 		event.getRegistry().registerAll(_basic_radar.setRegistryName(basic_radar.getRegistryName()));
 		event.getRegistry().registerAll(_advanced_radar.setRegistryName(advanced_radar.getRegistryName()));
+		event.getRegistry().registerAll(_elite_radar.setRegistryName(elite_radar.getRegistryName()));
 	}
 	
 	@SubscribeEvent
 	public static void registerRenders(ModelRegistryEvent event) {
 		registerRender(Item.getItemFromBlock(basic_radar));
 		registerRender(Item.getItemFromBlock(advanced_radar));
+		registerRender(Item.getItemFromBlock(elite_radar));
 	}
 	
 	public static void registerRender(Item item) {

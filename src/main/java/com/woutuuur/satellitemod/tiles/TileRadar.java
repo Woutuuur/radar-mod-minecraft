@@ -1,6 +1,7 @@
 package com.woutuuur.satellitemod.tiles;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.woutuuur.satellitemod.Reference;
 import com.woutuuur.satellitemod.blocks.BlockBasic;
@@ -8,7 +9,6 @@ import com.woutuuur.satellitemod.blocks.BlockBasic;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,8 +23,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber(modid=Reference.MODID)
 public class TileRadar extends BlockBasic implements ITileEntityProvider {
@@ -57,15 +55,28 @@ public class TileRadar extends BlockBasic implements ITileEntityProvider {
 	
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (worldIn.isRemote)
-			return true;
 		EntityTileRadar TE = (EntityTileRadar) worldIn.getTileEntity(pos);
-		if (!(TE.isInWhitelist(playerIn.getUniqueID())))
-		{
-			TE.addToWhiteList(playerIn.getUniqueID());
-			playerIn.sendMessage(new TextComponentString(TextFormatting.WHITE + "Player " + TextFormatting.GOLD + playerIn.getName() + TextFormatting.WHITE + " added to whitelist"));
-		} else {
-			playerIn.sendMessage(new TextComponentString(TextFormatting.WHITE + "Already whitelisted"));
+		if (worldIn.isRemote) return true;
+		if (playerIn.isSneaking()) {
+			List<UUID> whitelist = TE.getWhitelist();
+			if (whitelist.size() == 0) {
+				playerIn.sendMessage(new TextComponentString("Whitelist is empty"));
+			} else {
+				playerIn.sendMessage(new TextComponentString("Currently on the whitelist:"));
+				for (UUID uuid : TE.getWhitelist()) {	
+					playerIn.sendMessage(new TextComponentString(worldIn.getPlayerEntityByUUID(uuid).getName()));
+				}
+			}
+			
+		}
+		else {
+			if (!(TE.isInWhitelist(playerIn.getUniqueID())))
+			{
+				TE.addToWhiteList(playerIn.getUniqueID());
+				playerIn.sendMessage(new TextComponentString(TextFormatting.WHITE + "Player " + TextFormatting.GOLD + playerIn.getName() + TextFormatting.WHITE + " added to whitelist"));
+			} else {
+				playerIn.sendMessage(new TextComponentString(TextFormatting.WHITE + "Already whitelisted"));
+			}
 		}
 		return true;
 	}

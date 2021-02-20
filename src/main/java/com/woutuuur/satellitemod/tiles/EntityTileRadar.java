@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
@@ -12,8 +16,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
 public class EntityTileRadar extends TileEntity implements ITickable{
-	
 	List<UUID> whitelist = new ArrayList<UUID>();
+	World test;
 	boolean playerNearby = true;
 	int range = 3;
 	
@@ -35,7 +39,6 @@ public class EntityTileRadar extends TileEntity implements ITickable{
 	
 	public boolean isInWhitelist(UUID uuid) {
 		return (whitelist.contains(uuid));
-			
 	}
 	
 	public void findPlayerNearby() {
@@ -64,6 +67,16 @@ public class EntityTileRadar extends TileEntity implements ITickable{
 		playerNearby = false;
 	}
 	
+	@Override
+	public void readFromNBT(NBTTagCompound compound) {
+		super.readFromNBT(compound);
+	}
+	
+	@Override
+	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+		return compound;
+	}
+	
 	public boolean getPlayerNearby() {
 		return playerNearby;
 	}
@@ -71,4 +84,44 @@ public class EntityTileRadar extends TileEntity implements ITickable{
 	public void addToWhiteList(UUID uuid) {
 		whitelist.add(uuid);
 	}
+	
+	public void removeFromWhitelist(UUID uuid) {
+		if (whitelist.contains(uuid)) {
+			whitelist.remove(uuid);
+		}
+	}
+	
+	public List<UUID> getWhitelist() {
+		System.out.println(whitelist.toString());
+		return whitelist;
+	}
+	
+	
+	
+//	@Override
+//	public SPacketUpdateTileEntity getUpdatePacket() {
+//		return new SPacketUpdateTileEntity(this.pos, 3, this.getUpdateTag());
+//	}
+//	
+//	@Override
+//	public NBTTagCompound getUpdateTag() {
+//		return this.writeToNBT(new NBTTagCompound());
+//	}
+//	
+//	@Override
+//	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+//		super.onDataPacket(net, pkt);
+//		handleUpdateTag(pkt.getNbtCompound());
+//	}
+//	
+//	public void sendUpdates() {
+//		getWorld().markBlockRangeForRenderUpdate(pos, pos);
+//		getWorld().notifyBlockUpdate(pos, getState(), getState(), 3);
+//		getWorld().scheduleBlockUpdate(pos,this.getBlockType(),0,0);
+//		markDirty();
+//	}
+//	
+//	private IBlockState getState() {
+//		return getWorld().getBlockState(pos);
+//	}
 }

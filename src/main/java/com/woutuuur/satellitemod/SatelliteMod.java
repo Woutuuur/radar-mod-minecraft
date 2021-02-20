@@ -2,6 +2,7 @@ package com.woutuuur.satellitemod;
 
 import org.apache.logging.log4j.Logger;
 
+import com.woutuuur.satellitemod.client.gui.GuiHandler;
 import com.woutuuur.satellitemod.init.ModBlocks;
 import com.woutuuur.satellitemod.init.ModEvents;
 import com.woutuuur.satellitemod.init.ModItems;
@@ -16,12 +17,14 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
 public class SatelliteMod
 {
 	@Instance
 	public  static SatelliteMod instance;
+
 	public  static Entity storedEntity;
     private static Logger logger;
     
@@ -49,5 +52,6 @@ public class SatelliteMod
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+    	NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     }
 }
