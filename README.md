@@ -10,7 +10,7 @@ Block|Description
 Basic Radar|Emits a redstone signal when there are players in a 3 chunk radius
 Advanced Radar|Emits a redstone signal when there are players in a 10 chunk radius
 
-:: Right click a radar to add yourself to the whitelist
+:: Right click a radar to add yourself to the whitelist<br>
 :: Shift + right click a radar to show who's currently on the whitelist
 <br>
 
