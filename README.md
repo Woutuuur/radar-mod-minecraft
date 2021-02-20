@@ -3,12 +3,19 @@ Radar mod made using the Forge API in Minecraft 1.12.2
 
 A list of currently implemented features:
 
+## Blocks
+
 Block|Description
 -------|---------
-Basic Radar|Emits a redstone signal when there are players in a 3 chunk radius<br>Right click to add yourself to the whitelist
-Advanced Radar|Emits a redstone signal when there are players in a 10 chunk radius<br>Right click to add yourself to the whitelist
+Basic Radar|Emits a redstone signal when there are players in a **3** chunk radius
+Advanced Radar|Emits a redstone signal when there are players in a **10** chunk radius
+Elite Radar|Emits a redstone signal when there are players in a **50** chunk radius
 
+:: Right click a radar to add yourself to the whitelist<br>
+:: Shift + right click a radar to show who's currently on the whitelist
 <br>
+
+## Items
 
 Item|Description
 -------|---------
